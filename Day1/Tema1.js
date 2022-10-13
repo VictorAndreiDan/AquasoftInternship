@@ -230,15 +230,15 @@ function changeVal(newVal){
 changeVal(99).then(()=>{console.log("Dupa ce promise a fost rezolvat afisam valoarea variabilei:",val)});
 
 // 1.7. Async. Await. 
-// in asynchronous programming functiile async sunt rezolvate la timpul lor pe nodejs event loop pentru a nu incetinii threadul principal iar dupa executarea functie se intoarce 
-// la threadul curent
+// in asynchronous programming functiile async sunt rezolvate la timpul lor pe nodejs event loop pentru a nu incetinii procesul iar dupa executarea functie se intoarce 
+// la procesul curent
 // Await este un keyword folosit pentru atunci cand vrem sa asteptam rezolvarea unei functii async inainte sa trecem mai departe (de exemplu citirea dintr-un database care returneaza un promise)
 // putem astepta pentru ca acea citire din database sa se termine si dupa rulam codul in continuare
 
 async function doSomethingAsync(){
     // await asteapta pentru primise sa fie rezolvat si dupa se trece la urmatoarele linii de cod din aceasta functie
     await changeVal(53);
-    const commentary = "\n\n// 1.7. Async. Await. \n// in asynchronous programming functiile async sunt rezolvate la timpul lor pe nodejs event loop pentru a nu incetinii threadul principal iar dupa executarea functie se intoarce \n// la threadul curent\n// Await este un keyword folosit pentru atunci cand vrem sa asteptam rezolvarea unei functii async inainte sa trecem mai departe (de exemplu citirea dintr-un database care returneaza un promise)\n// putem astepta pentru ca acea citire din database sa se termine si dupa rulam codul in continuare";
+    const commentary = "\n\n// 1.7. Async. Await. \n// in asynchronous programming functiile async sunt rezolvate la timpul lor pe nodejs event loop pentru a nu incetinii procesul iar dupa executarea functie se intoarce \n// la procesul curent\n// Await este un keyword folosit pentru atunci cand vrem sa asteptam rezolvarea unei functii async inainte sa trecem mai departe (de exemplu citirea dintr-un database care returneaza un promise)\n// putem astepta pentru ca acea citire din database sa se termine si dupa rulam codul in continuare";
     console.log(commentary);
     console.log("Dupa ce await a fost rezolvat afisam valoarea variabilei:",val);
 }
