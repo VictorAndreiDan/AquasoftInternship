@@ -205,7 +205,7 @@ console.log("Splice pentru a sterge ultimele 2 elemente si a le inlocuii cu 33 s
 // 1.6. Promise. Callback.
 console.log("\n\n// 1.6. Promise. Callback.");
 // promise si callback sunt elemente de asynchronous programming, ele pot fi folosite pentru a nu bloca programul cu linii de cod care dureaza mai mult decat restul liniilor
-// totul este pus pe alt thread si cand este terminat se intoarce in main thread si se rezolva
+// totul este pus pe event loop si cand este terminat se intoarce in main si se rezolva
 // Callback functions sunt chemate in momentul in care un task a fost completat
 // Putem folosi callback functions pentru setTiomeout iar dupa ce durata de dimp a trecut va fi chemata functia callback
 setTimeout(()=>{console.log("Dupa 1 secunda afisam pe ecran!");}, 1000);
@@ -230,7 +230,7 @@ function changeVal(newVal){
 changeVal(99).then(()=>{console.log("Dupa ce promise a fost rezolvat afisam valoarea variabilei:",val)});
 
 // 1.7. Async. Await. 
-// in asynchronous programming functiile async sunt rezolvate la timpul lor pe un thread diferit pentru  a nu incetinii threadul principal iar dupa executarea functie se intoarce 
+// in asynchronous programming functiile async sunt rezolvate la timpul lor pe nodejs event loop pentru a nu incetinii threadul principal iar dupa executarea functie se intoarce 
 // la threadul curent
 // Await este un keyword folosit pentru atunci cand vrem sa asteptam rezolvarea unei functii async inainte sa trecem mai departe (de exemplu citirea dintr-un database care returneaza un promise)
 // putem astepta pentru ca acea citire din database sa se termine si dupa rulam codul in continuare
@@ -238,7 +238,7 @@ changeVal(99).then(()=>{console.log("Dupa ce promise a fost rezolvat afisam valo
 async function doSomethingAsync(){
     // await asteapta pentru primise sa fie rezolvat si dupa se trece la urmatoarele linii de cod din aceasta functie
     await changeVal(53);
-    const commentary = "\n\n// 1.7. Async. Await. \n// in asynchronous programming functiile async sunt rezolvate la timpul lor pe un thread diferit pentru  a nu incetinii threadul principal iar dupa executarea functie se intoarce \n// la threadul curent\n// Await este un keyword folosit pentru atunci cand vrem sa asteptam rezolvarea unei functii async inainte sa trecem mai departe (de exemplu citirea dintr-un database care returneaza un promise)\n// putem astepta pentru ca acea citire din database sa se termine si dupa rulam codul in continuare";
+    const commentary = "\n\n// 1.7. Async. Await. \n// in asynchronous programming functiile async sunt rezolvate la timpul lor pe nodejs event loop pentru a nu incetinii threadul principal iar dupa executarea functie se intoarce \n// la threadul curent\n// Await este un keyword folosit pentru atunci cand vrem sa asteptam rezolvarea unei functii async inainte sa trecem mai departe (de exemplu citirea dintr-un database care returneaza un promise)\n// putem astepta pentru ca acea citire din database sa se termine si dupa rulam codul in continuare";
     console.log(commentary);
     console.log("Dupa ce await a fost rezolvat afisam valoarea variabilei:",val);
 }
