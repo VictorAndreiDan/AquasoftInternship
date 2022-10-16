@@ -1,5 +1,5 @@
 ## Day 2 - Tema2 Aquasoft Internship
-### MongoDB - alegere database
+## MongoDB - alegere database
 ### De ce MongoDB? Pentru ca articolele nu sunt relationale din natura lor asa ca MongoDB are sens peste MySQL.
 ### Articolele de presa nu sunt facute din parti mai mici (nu pot fi reduse la cea mai mica forma normala).
 ### Majoritatea timpului un articol este alcatuit dintr-un paragraf de text si cateva linkuri sau imagini.
