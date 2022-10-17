@@ -1,4 +1,4 @@
-// aceast file este folosit pentru a adauga useri in mongodb pentru testing ca alternativa pentru compass
+// aceast file este folosit pentru a adauga useri in mongodb pentru testing ca alternativa pentru compass, creaza si colectia daca nu este facuta
 
 const mongoose  = require('mongoose');
 const Article   = require('./Article.js');

@@ -1,10 +1,10 @@
-1-Create Database with MongoDB
+1-Create Database with MongoDB - done
 	Why MongoDB? Because press articles are not relational by nature so using MongoDB makes sense over MySQL
 	Press articles are not made of smaller parts(cannot be reduced to smallest normal form)
 	Most of the time they are made of a single text paragraph with maybe a few links.
 	They can be structured in a hierarchical order under a certain subject but do not require MySQL Functionality (Foreign Keys or Joins)
 	Supports horizontal expansion which is likely neded when talking about media such as a new location/firm (additional endpoints in the system as opposed to vertical MySQL expansion with hardware)
-2-Create 1 table with the data
+2-Create 1 table with the data - done
 		{
 			Tabelul / Colectia "Articles" va avea urmatoarea structura:
 
@@ -25,17 +25,17 @@
 			Article_citations: varchar
 		}
 
-3-Add test data to database table
-4-Create Express project that uses database with Mongoose
-5-Create REST services : 	2 GET (return every element in table/ return 1 element using its name)
-							1 POST (create new)
-							1 PUT (update after primary key)
-							1 DELETE (delete after primary key)
-5-Test with POSTMAN or Advanced REST Client 
+3-Add test data to database table - done
+4-Create Express project that uses database with Mongoose - done
+5-Create REST services : 	2 GET (return every element in table/ return 1 element using its name) todo -done
+							1 POST (create new) - done
+							1 PUT (update after primary key) - done
+							1 DELETE (delete after primary key) - done
+5-Test with POSTMAN or Advanced REST Client - done
 
 
 
-Hint Express:
+Hint Express:  - DONE
 ==========
 Pentru a testa POST/PUT este necesar sa scrieti niste linii de cod suplimentare in index.js/app.js, altfel req.body va fi undefined. Daca nu le gasiti, ne scrieti.
 Ar fi de preferat sa creati foldere separate pentru modele si rute si sa nu scrieti tot codul in app.js, pentru a fi mai structurat.

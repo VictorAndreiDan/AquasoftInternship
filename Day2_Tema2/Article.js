@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const articleSchema = new mongoose.Schema({
-    Article_no: String,
+    Article_no: {
+		type: String,
+		required: true
+	},
 	Article_short_description: String,
 	Article_date: Date,
 	Collection_date: Date,
