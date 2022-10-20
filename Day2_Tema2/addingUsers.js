@@ -1,9 +1,10 @@
 // aceast file este folosit pentru a adauga useri in mongodb pentru testing ca alternativa pentru compass, creaza si colectia daca nu este facuta
-const addToken	= require('./addingTokens.js');
-const mongoose  = require('mongoose');
-const Article   = require('./Article.js');
+const addToken			= require('./addingTokens.js');
+const addCategories		= require('./addingCategories.js');
+const mongoose  		= require('mongoose');
+const Article   		= require('./Article.js');
 
-// mongoose.connect("mongodb://localhost/aquasofttema2", ()=> console.log("Connected to MongoDB locally!"), (err)=> console.log("Failed to connect with error: ", err));
+// mongoose.connect("mongodb://localhost/aquasofttema2");
 
 // const newUser = new Article({
 //     Article_no: "nr789",
@@ -23,4 +24,16 @@ const Article   = require('./Article.js');
 //     mongoose.connection.close();
 // });
 
-addToken('new token from users');
+async function doSmth(){
+	await mongoose.connect("mongodb://localhost/aquasofttema2");
+	const firstArticle = await Article.findOne({Article_no: 'nr2'});
+	await mongoose.disconnect();
+	console.log("got id:", firstArticle._id);
+	await addToken('firstToken', firstArticle._id);
+	await addToken('firstToken', firstArticle._id);
+	await addCategories('firstCategory', firstArticle._id);
+	await addCategories('firstCategory', firstArticle._id);
+
+	await mongoose.connection.close();
+}
+doSmth();

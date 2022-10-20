@@ -1,11 +1,11 @@
-1 - Add 2 new colletions to database : "Categories" si "Tokens"
-2 - Add CRUD functionality for all of them
-3 - Relationships: token = words of the article body
-		a - one article to many tokens
-		b - token to many articles
-		c - artcle to one category
-		d - category to many articles
-4 - GET TOKEN with all articles where found and all categories of these articles
+1 - Add 2 new colletions to database : "Categories" si "Tokens"                     - done
+2 - Add CRUD functionality for all of them                                          - done
+3 - Relationships: token = words of the article body    - done
+		a - one article to many tokens                  - done
+		b - token to many articles                      - done
+		c - artcle to one category                      - done
+		d - category to many articles                   - done
+4 - GET TOKEN with all articles where found and all categories of these articles    - done
 
 
 STRUCTURE: 

@@ -14,7 +14,9 @@ const articleSchema = new mongoose.Schema({
 	Location: String,
 	Article_keywords: String,
 	Article_weight: Number,
-	Article_citations: String
+	Article_citations: String,
+	Article_tokens: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tokens' }],  // article has many tokens
+	Article_category: { type: mongoose.Schema.Types.ObjectId, ref: 'Categories' } // article has only 1 category
 });
 
 module.exports = mongoose.model("Articles", articleSchema);

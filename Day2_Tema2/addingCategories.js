@@ -1,24 +1,30 @@
-// aceast file este folosit pentru a adauga useri in mongodb pentru testing ca alternativa pentru compass, creaza si colectia daca nu este facuta
+const Categories	= require('./Categories.js');
+const mongoose		= require('mongoose');
 
-const mongoose  = require('mongoose');
-const Article   = require('./Article.js');
+async function addCategories(categoryName, articleID){
+	await mongoose.connect("mongodb://localhost/aquasofttema2");
+	const searchResult	= await Categories.find({Category_name: categoryName});
+	console.log("THE length is: ", searchResult.length);
+	if(searchResult.length > 0 && searchResult[0].Articles.includes(articleID)) {
+		console.log("Category with name:", categoryName, "already exists and the article is already added as foreign key!");
+		return false;
+	} // Token already exists
+	if(searchResult.length > 0 && !searchResult[0].Articles.includes(articleID)) {
+		searchResult[0].Articles.push(articleID);
+		searchResult[0].save();
+		console.log("Category with name:", categoryName, "has added article as foreign key with id:", articleID);
+		return false;
+	}
+	const newCategory = new Categories({
+		Category_name: categoryName,
+		Articles: []
+	});
+	newCategory.Articles.push(articleID);
+	newCategory.save().then(()=>{
+		console.log("Added Category: ", newCategory);
+		return true;
+	});
+	await mongoose.disconnect();
+}
 
-mongoose.connect("mongodb://localhost/aquasofttema2", ()=> console.log("Connected to MongoDB locally!"), (err)=> console.log("Failed to connect with error: ", err));
-
-const newUser = new Article({
-    Article_no: "nr789",
-	Article_short_description: "short description 3",
-	Article_date: new Date(),
-	Collection_date: new Date(),
-	Article_body: "body of article3",
-	Article_source: "source of article3",
-	Article_URL: "Url of article3",
-	Location: "Location of article3",
-	Article_keywords: "Keywords of article3",
-	Article_weight: 3,
-	Article_citations: "citations of article3"
-});
-newUser.save().then(()=>{
-    console.log("Added User: ", newUser);
-    mongoose.connection.close();
-});
+module.exports = addCategories;

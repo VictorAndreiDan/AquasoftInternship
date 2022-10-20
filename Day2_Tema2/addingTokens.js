@@ -1,25 +1,30 @@
-// aceast file este folosit pentru a adauga useri in mongodb pentru testing ca alternativa pentru compass, creaza si colectia daca nu este facuta
-
-const mongoose  = require('mongoose');
 const Tokens	= require('./Tokens.js');
+const mongoose  = require('mongoose');
 
-mongoose.connect("mongodb://localhost/aquasofttema2", ()=> console.log("Connected to MongoDB locally!"), (err)=> console.log("Failed to connect with error: ", err));
-
-async function addToken(tokenBody){
-	const searchResult	= await Tokens.find({Token_body: tokenBody});
-	if(searchResult.length > 0) {
-		console.log("Token with body:", tokenBody, "already exists!");
-		mongoose.connection.close();
+async function addToken(tokenBody, objectId){
+	await mongoose.connect("mongodb://localhost/aquasofttema2");
+	const searchResult = await Tokens.find({Token_body: tokenBody});
+	console.log("THE length is: ", searchResult.length);
+	if(searchResult.length > 0 && searchResult[0].Articles.includes(objectId)) {
+		console.log("Token with body:", tokenBody, "already exists and has post as primary key!");
 		return false;
 	} // Token already exists
+	if(searchResult.length > 0 && !(searchResult[0].Articles.includes(objectId))){
+		searchResult[0].Articles.push(objectId);
+		searchResult[0].save();
+		console.log("Token with body:", tokenBody, "already exists but article was added as foreign key with id:", objectId);
+		return false;
+	}
 	const newToken = new Tokens({
-		Token_body: tokenBody
+		Token_body: tokenBody,
+		Articles: []
 	});
+	newToken.Articles.push(objectId);
 	newToken.save().then(()=>{
 		console.log("Added Token: ", newToken);
-		mongoose.connection.close();
 		return true;
 	});
+	await mongoose.disconnect();
 }
 
 module.exports = addToken;
