@@ -57,7 +57,7 @@ app.delete('/articles/:primary_key', async (request, response) => {
 });
 // check if json sent in post request has valid fields
 async function validatePost(post){
-    const modelArticle = await Article.findOne({Article_no: "nr1"});
+    const modelArticle = await Article.findOne({});
     let checker = (arr, toBeIncluded) => toBeIncluded.every(v => arr.includes(v));
     // check for valid keys in json and if the name is entered
     // article._doc is the document body

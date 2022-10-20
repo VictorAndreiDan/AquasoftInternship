@@ -1,0 +1,24 @@
+1 - Add 2 new colletions to database : "Categories" si "Tokens"
+2 - Add CRUD functionality for all of them
+3 - Relationships: token = words of the article body
+		a - one article to many tokens
+		b - token to many articles
+		c - artcle to one category
+		d - category to many articles
+4 - GET TOKEN with all articles where found and all categories of these articles
+
+
+STRUCTURE: 
+Tabelul / Colectia "Categorii" va avea urmatoarea structura:
+
+Nume: Categories
+Coloane/ Campuri:
+    ID
+    Category_name: varchar
+
+Tabelul / Colectia "Tokens" va avea urmatoarea structura:
+
+Nume: Tokens
+Coloane/ Campuri:
+    ID
+    Token_body: varchar
