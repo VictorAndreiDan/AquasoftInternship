@@ -1,11 +1,12 @@
 {
-  "Article_no": "nrX",
-  "Article_short_description": "short description X",
-  "Article_body": "body of articleX",
-  "Article_source": "source of articleX",
-  "Article_URL": "Url of articleX",
-  "Location": "Location of articleX",
-  "Article_keywords": "Keywords of articleX",
-  "Article_weight": 1,
-  "Article_citations": "citations of articleX"
+"Article_no": "nrX",
+"Article_short_description": "short description X",
+"Article_body": "token1 token2",
+"Article_source": "source of articleX",
+"Article_URL": "Url of articleX",
+"Location": "Location of articleX",
+"Article_keywords": "Keywords of articleX",
+"Article_weight": 1,
+"Article_citations": "citations of articleX",
+"Article_category": "music"
 }
