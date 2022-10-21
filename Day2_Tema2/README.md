@@ -1,4 +1,7 @@
 # Day 2 - Tema2 Aquasoft Internship
+
+## Cand un nou articol este creat cu api sau folosing direct addingArticle.js este creat si articolul si tokenurile si categoriile daca nu exista si sunt facute legaturile
+
 ## MongoDB - alegere database
 ### De ce MongoDB? Pentru ca articolele nu sunt relationale din natura lor asa ca MongoDB are sens peste MySQL.
 ### Articolele de presa nu sunt facute din parti mai mici (nu pot fi reduse la cea mai mica forma normala).
