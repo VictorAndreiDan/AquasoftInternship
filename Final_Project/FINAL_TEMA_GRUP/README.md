@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Final week project
 
-Languages and utilities: NodeJS, Redux, MongoDB, ExpressJS, Bootstrap
+Languages and utilities: NodeJS, Redux, MongoDB, ExpressJS, Bootstrap and the week2 project api from folder Day2_Tema2(1 level up)
 
 ## Project Details
 
